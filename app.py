@@ -57,9 +57,7 @@ if st.session_state.tasks:
     st.header("タスク一覧と可視化")
     
     # タスク一覧（テーブル）
-    df = pd.DataFrame(st.session_state.tasks)
-    st.subheader("追加されたタスク")
-    st.altair_chart(chart, use_container_width=True)    
+    df = pd.DataFrame(st.session_state.tasks)   
     # 散布図（Altair）：x=労力、y=影響度、点にタスク名表示、スケール0-10固定
     st.subheader("優先度マップ")
     
@@ -112,7 +110,7 @@ if st.session_state.tasks:
     )
 
     chart = (points + labels + center_v + center_h).properties(width=600, height=400)
-    st.altair_chart(chart, width="stretch")
+    st.altair_chart(chart, use_container_width=True)
     
     # 補助説明
     st.info("💡 **おすすめゾーン**: 影響度が高く（上）、労力が低い（左）のタスクは、最優先候補です。")

@@ -59,7 +59,7 @@ if st.session_state.tasks:
     # タスク一覧（テーブル）
     df = pd.DataFrame(st.session_state.tasks)
     st.subheader("追加されたタスク")
-    st.altair_chart(chart, width="stretch")    
+    st.altair_chart(chart, use_container_width=True)    
     # 散布図（Altair）：x=労力、y=影響度、点にタスク名表示、スケール0-10固定
     st.subheader("優先度マップ")
     
